@@ -28,14 +28,7 @@ class Czlowiek:
                 print(abs(self.weight - self.correct_weight))
     def save_data(self):
         with open('{}.json'.format(self.name),'w')as file:
-            json.dump(
-                {
-                self.name,
-                self.height,
-                self.weight,
-                },
-                file
-            )
+            json.dump(self.__dict__,file)
     def to_burn(self):
         pass
 
@@ -60,7 +53,7 @@ class Polityk(Czlowiek):
         self.check = True
         pass
 
-a = Czlowiek('Teusz',1.90,100)
+a = Czlowiek('Teusz',190,100)
 a.count_bmi()
 a.diff_to_norm()
 a.save_data()
